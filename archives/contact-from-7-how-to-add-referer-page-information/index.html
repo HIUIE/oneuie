@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VarKai" />
+	
+	
+	
+	<title>Contact From 7 如何在表单中添加 referer-page 信息？ ｜ 坐井说天阔</title>
+	
+    
+    
+    <meta name="description" content="如何了解访客是是通过哪一个页面进入我们的询盘页面？" />
+    
+
+    
+    
+    <meta name="keywords" content="referer-page, 表单" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://oneuie.me/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://oneuie.me/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://oneuie.me/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://oneuie.me/css/highlight.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/categories/">Categories</a>
+            </li>
+            
+            <li>
+                <a href="/archives/">Archives</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://oneuie.me/">
+                    <span>坐井天阔</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">Opposite is endless darkness</p>
+            <div class="my_socials">
+                
+                
+                <a href="%20" title="facebook" target="_blank"><i class="ri-facebook-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="instagram" target="_blank"><i class="ri-instagram-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="weibo" target="_blank"><i class="ri-weibo-fill"></i></a>
+                
+                
+                <a href="https://oneuie.me/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/archives/contact-from-7-how-to-add-referer-page-information/'>Contact From 7 如何在表单中添加 referer-page 信息？</a></h2>
+                        <span class="date">2023.01.30</span>
+                    </div>
+                    <div class="post_content markdown"><p>平时我们使用contact from 7可以得到一封非常完善的询盘信息。</p>
+<p>如何了解访客是通过哪一个页面进入我们的发送询盘的页面的呢？</p>
+<p>这里就需要我们来操作一下达到我们的的需求了。</p>
+<h2 id="添加代码到functionphp">添加代码到<strong>function.php</strong></h2>
+<p>将下方的代码添加到主题的<strong>function.php</strong>文件中</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// referer page contact from 7
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">function getRefererPage( $form_tag )
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">if ( $form_tag[&#39;name&#39;] == &#39;referer-page&#39; ) {
+</span></span><span class="line"><span class="cl">$form_tag[&#39;values&#39;][] = htmlspecialchars($_SERVER[&#39;HTTP_REFERER&#39;]);
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">return $form_tag;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">if ( !is_admin() ) {
+</span></span><span class="line"><span class="cl">add_filter( &#39;wpcf7_form_tag&#39;, &#39;getRefererPage&#39; );
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h2 id="添加代码到表单">添加代码到表单</h2>
+<p>[hidden referer-page default:get]</p>
+<h2 id="编辑表单的邮件模版">编辑表单的邮件模版</h2>
+<p>在适当的位置添加 <strong>[referer-page]</strong> 并且保存。</p>
+<p>现在通过给这个表单给你发的邮件，就可以看到<strong>referer-page</strong>.</p>
+<h2 id="表单参考模版">表单参考模版</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">表单参考
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;p class=&#34;cf7-title&#34;&gt;&lt;h2 style=&#34;font-size:25px;&#34;&gt;&lt;span style=&#34;color: #ffffff;&#34;&gt;&lt;i class=&#34;fa fa-envelope-o&#34;&gt;&lt;/i&gt; We would love to work with you.&lt;/span&gt;&lt;/h2&gt;&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;p&gt;[text* your-name placeholder &#34;Your name*&#34;]&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;p&gt;[email* your-email placeholder &#34;Email Address*&#34;]&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;p&gt;[tel tel-551 placeholder &#34;Telephone&#34;]&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;p&gt;[text your-subject placeholder &#34;Title&#34;]&lt;/p&gt;
+</span></span><span class="line"><span class="cl">[hidden referer-page default:get]
+</span></span><span class="line"><span class="cl">&lt;p&gt;[textarea* your-message placeholder &#34;Wirtring your requrie&#34;]&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;p&gt;[submit &#34;Send&#34;]&lt;/p&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">邮件模版参考
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Hello, My firend,
+</span></span><span class="line"><span class="cl">My name is [your-name]. I am interested in [your-subject]. Following is my detail require:
+</span></span><span class="line"><span class="cl">[your-message].
+</span></span><span class="line"><span class="cl">And please found [your-name]&#39;s contact information as following:
+</span></span><span class="line"><span class="cl">Name:[your-name]
+</span></span><span class="line"><span class="cl">Phone Number: [tel-551]
+</span></span><span class="line"><span class="cl">Email Address: [your-email]
+</span></span><span class="line"><span class="cl">After I visit [referer-page]. I write message from [_url] and the title is [_post_title].
+</span></span><span class="line"><span class="cl">Thank you for your reply.
+</span></span><span class="line"><span class="cl">Best Regards,
+</span></span><span class="line"><span class="cl">[your-name]
+</span></span><span class="line"><span class="cl">My IP: [_remote_ip]
+</span></span><span class="line"><span class="cl">Browser information: [_user_agent]
+</span></span><span class="line"><span class="cl">--
+</span></span><span class="line"><span class="cl">This e-mail was sent from a contact form on Oneuie.me (https://oneuie.me)
+</span></span></code></pre></div><p>new</p>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://oneuie.me/tags/contact-from-7/">contact-from-7</a>
+                                    
+                                    <a href="https://oneuie.me/tags/wordpress/">Wordpress</a>
+                                    
+                                    <a href="https://oneuie.me/tags/%E8%A1%A8%E5%8D%95/">表单</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com">Designed by VarKai,</a>
+        <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>Throw Me To The Wolves, and I Will Return Leading Them.</span>
+    </div>
+</footer>
+    <script src="https://oneuie.me/js/jquery-3.5.1.min.js"></script>
+<link href="https://oneuie.me/css/fancybox.min.css" rel="stylesheet">
+<script src="https://oneuie.me/js/fancybox.min.js"></script>
+<script src="https://oneuie.me/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>

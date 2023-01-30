@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Archives on 坐井说天阔</title>
+    <link>https://oneuie.me/archives/</link>
+    <description>Recent content in Archives on 坐井说天阔</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 30 Jan 2023 13:54:36 +0800</lastBuildDate><atom:link href="https://oneuie.me/archives/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Contact From 7 如何在表单中添加 referer-page 信息？</title>
+      <link>https://oneuie.me/archives/contact-from-7-how-to-add-referer-page-information/</link>
+      <pubDate>Mon, 30 Jan 2023 13:54:36 +0800</pubDate>
+      
+      <guid>https://oneuie.me/archives/contact-from-7-how-to-add-referer-page-information/</guid>
+      <description>平时我们使用contact from 7可以得到一封非常完善的询盘信息。 如何了解访客是通过哪一个页面进入我们的发送询盘的页面的呢？ 这里就需要我们来操作一下达到我们的的需求了。 添加代码到function.php 将</description>
+    </item>
+    
+  </channel>
+</rss>
