@@ -13,7 +13,12 @@
       <pubDate>Thu, 02 Feb 2023 15:10:13 +0800</pubDate>
       
       <guid>https://oneuie.me/archives/how-to-install-hugo-via-mac/</guid>
-      <description>Hugo的优势 最快的静态网站生产工具，速度非常快。特别推荐。 Mac系统安装Hugo brew install hug 查看Hugo版本 hugo version 创建新网站 hugo new site xxx xxx替换成自己的 添加主题 进入网站根目录 git init git submodule add https://github.com/varkai/hugo-theme-zozo themes/zozo 本网站使用的ZOZO</description>
+      <description>&lt;h2 id=&#34;hugo的优势&#34;&gt;Hugo的优势&lt;/h2&gt;
+&lt;p&gt;最快的静态网站生产工具，速度非常快。特别推荐。&lt;/p&gt;
+&lt;h2 id=&#34;mac系统安装hugo&#34;&gt;Mac系统安装Hugo&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt; brew install hug&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;查看hugo版本&#34;&gt;查看Hugo版本&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;hugo version&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -22,7 +27,11 @@
       <pubDate>Mon, 30 Jan 2023 13:54:36 +0800</pubDate>
       
       <guid>https://oneuie.me/archives/contact-from-7-how-to-add-referer-page-information/</guid>
-      <description>平时我们使用contact from 7可以得到一封非常完善的询盘信息。 如何了解访客是通过哪一个页面进入我们的发送询盘的页面的呢？ 这里就需要我们来操作一下达到我们的的需求了。 添加代码到function.php 将</description>
+      <description>&lt;p&gt;平时我们使用contact from 7可以得到一封非常完善的询盘信息。&lt;/p&gt;
+&lt;p&gt;如何了解访客是通过哪一个页面进入我们的发送询盘的页面的呢？&lt;/p&gt;
+&lt;p&gt;这里就需要我们来操作一下达到我们的的需求了。&lt;/p&gt;
+&lt;h2 id=&#34;添加代码到functionphp&#34;&gt;添加代码到&lt;strong&gt;function.php&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;将下方的代码添加到主题的&lt;strong&gt;function.php&lt;/strong&gt;文件中&lt;/p&gt;</description>
     </item>
     
   </channel>

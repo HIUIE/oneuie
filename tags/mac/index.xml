@@ -13,7 +13,12 @@
       <pubDate>Thu, 02 Feb 2023 15:10:13 +0800</pubDate>
       
       <guid>https://oneuie.me/archives/how-to-install-hugo-via-mac/</guid>
-      <description>Hugo的优势 最快的静态网站生产工具，速度非常快。特别推荐。 Mac系统安装Hugo brew install hug 查看Hugo版本 hugo version 创建新网站 hugo new site xxx xxx替换成自己的 添加主题 进入网站根目录 git init git submodule add https://github.com/varkai/hugo-theme-zozo themes/zozo 本网站使用的ZOZO</description>
+      <description>&lt;h2 id=&#34;hugo的优势&#34;&gt;Hugo的优势&lt;/h2&gt;
+&lt;p&gt;最快的静态网站生产工具，速度非常快。特别推荐。&lt;/p&gt;
+&lt;h2 id=&#34;mac系统安装hugo&#34;&gt;Mac系统安装Hugo&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt; brew install hug&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;查看hugo版本&#34;&gt;查看Hugo版本&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;hugo version&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
