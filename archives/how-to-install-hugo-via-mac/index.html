@@ -8,11 +8,11 @@
 	
 	
 	
-	<title>Tags ｜ 坐井说天阔</title>
+	<title>Mac如何安装Hugo? ｜ 坐井说天阔</title>
 	
     
     
-    <meta name="description" content="Hello everyone, this site is a blog that records my personal thoughts and exciting things I want to share." />
+    <meta name="description" content="Mac系统如何安装hugo？" />
     
 
     
@@ -21,8 +21,6 @@
     
 
 	
-	<link rel="alternate" type="application/rss+xml" href="https://oneuie.me/tags/index.xml" title="坐井说天阔" />
-    
     
     <link rel="shortcut icon" href="https://oneuie.me/images/favicon.ico" />
 
@@ -108,56 +106,67 @@
     </div>
 </div>
         <div class="content">
-            <div class="page_tags">
-                <ul>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/contact-from-7">
-                            contact-from-7 <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/hugo">
-                            hugo <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/mac">
-                            mac <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/wordpress">
-                            wordpress <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/%E8%A1%A8%E5%8D%95">
-                            表单 <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                </ul>
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/archives/how-to-install-hugo-via-mac/'>Mac如何安装Hugo?</a></h2>
+                        <span class="date">2023.02.02</span>
+                    </div>
+                    <div class="post_content markdown"><h2 id="hugo的优势">Hugo的优势</h2>
+<p>最快的静态网站生产工具，速度非常快。特别推荐。</p>
+<h2 id="mac系统安装hugo">Mac系统安装Hugo</h2>
+<p><code> brew install hug</code></p>
+<h2 id="查看hugo版本">查看Hugo版本</h2>
+<p><code>hugo version</code></p>
+<h2 id="创建新网站">创建新网站</h2>
+<p><code>hugo new site xxx</code><br>
+xxx替换成自己的</p>
+<h2 id="添加主题">添加主题</h2>
+<p>进入网站根目录<br>
+<code>git init</code><br>
+<code>git submodule add https://github.com/varkai/hugo-theme-zozo themes/zozo</code><br>
+本网站使用的ZOZO主题，可替换为自己喜欢的主题。把主题examplesite目录下的 config.xml,contenty以及staic文件以及文件夹复制到根目录替换原文件。</p>
+<h2 id="创建文章指令">创建文章指令</h2>
+<p><code>hugo new post/my-first-post.md</code></p>
+<h2 id="本地运行">本地运行</h2>
+<p><code>hugo server</code></p>
+<h2 id="创建静态文件">创建静态文件</h2>
+<p><code>hugo</code><br>
+<code>hugo -D </code>
+
+
+<div class="fancybox">
+    <a data-fancybox="gallery" href="https://oneuie.me/hugo-install.jpg" data-caption="">
+        <img src="https://oneuie.me/hugo-install.jpg" />
+    </a>
+</div><br>
+出现这样的提示说明本地静态文件已经生产。点击http://localhost:1313/进入，至此hugo已经安装好。</p>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://oneuie.me/tags/hugo/">hugo</a>
+                                    
+                                    <a href="https://oneuie.me/tags/mac/">Mac</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
             </div>
-            <div class="pagination"></div>
         </div>
-        <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
     </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
     <footer class="footer">
     <div class="powered_by">
         <a href="https://varkai.com">Designed by VarKai,</a>

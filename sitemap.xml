@@ -3,33 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://oneuie.me/archives/</loc>
-    <lastmod>2015-12-23T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-02T15:10:13+08:00</lastmod>
   </url><url>
-    <loc>https://oneuie.me/categories/</loc>
-    <lastmod>2015-12-23T00:00:00+00:00</lastmod>
+    <loc>https://oneuie.me/tags/hugo/</loc>
+    <lastmod>2023-02-02T15:10:13+08:00</lastmod>
   </url><url>
-    <loc>https://oneuie.me/archives/contact-from-7-how-to-add-referer-page-information/</loc>
-    <lastmod>2015-12-23T00:00:00+00:00</lastmod>
+    <loc>https://oneuie.me/tags/mac/</loc>
+    <lastmod>2023-02-02T15:10:13+08:00</lastmod>
   </url><url>
-    <loc>https://oneuie.me/tags/contact-from-7/</loc>
-    <lastmod>2015-12-23T00:00:00+00:00</lastmod>
+    <loc>https://oneuie.me/archives/how-to-install-hugo-via-mac/</loc>
+    <lastmod>2023-02-02T15:10:13+08:00</lastmod>
   </url><url>
     <loc>https://oneuie.me/tags/</loc>
-    <lastmod>2015-12-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://oneuie.me/tags/wordpress/</loc>
-    <lastmod>2015-12-23T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-02T15:10:13+08:00</lastmod>
   </url><url>
     <loc>https://oneuie.me/</loc>
-    <lastmod>2015-12-23T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-02T15:10:13+08:00</lastmod>
   </url><url>
-    <loc>https://oneuie.me/categories/%E5%BB%BA%E7%AB%99/</loc>
-    <lastmod>2015-12-23T00:00:00+00:00</lastmod>
+    <loc>https://oneuie.me/archives/contact-from-7-how-to-add-referer-page-information/</loc>
+    <lastmod>2023-01-30T13:54:36+08:00</lastmod>
+  </url><url>
+    <loc>https://oneuie.me/tags/contact-from-7/</loc>
+    <lastmod>2023-01-30T13:54:36+08:00</lastmod>
+  </url><url>
+    <loc>https://oneuie.me/tags/wordpress/</loc>
+    <lastmod>2023-01-30T13:54:36+08:00</lastmod>
   </url><url>
     <loc>https://oneuie.me/tags/%E8%A1%A8%E5%8D%95/</loc>
-    <lastmod>2015-12-23T00:00:00+00:00</lastmod>
+    <lastmod>2023-01-30T13:54:36+08:00</lastmod>
   </url><url>
     <loc>https://oneuie.me/about/</loc>
     <lastmod>2023-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://oneuie.me/categories/</loc>
   </url>
 </urlset>

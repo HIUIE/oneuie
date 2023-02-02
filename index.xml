@@ -6,7 +6,16 @@
     <description>Recent content on 坐井说天阔</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 30 Jan 2023 13:54:36 +0800</lastBuildDate><atom:link href="https://oneuie.me/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Feb 2023 15:10:13 +0800</lastBuildDate><atom:link href="https://oneuie.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mac如何安装Hugo?</title>
+      <link>https://oneuie.me/archives/how-to-install-hugo-via-mac/</link>
+      <pubDate>Thu, 02 Feb 2023 15:10:13 +0800</pubDate>
+      
+      <guid>https://oneuie.me/archives/how-to-install-hugo-via-mac/</guid>
+      <description>Hugo的优势 最快的静态网站生产工具，速度非常快。特别推荐。 Mac系统安装Hugo brew install hug 查看Hugo版本 hugo version 创建新网站 hugo new site xxx xxx替换成自己的 添加主题 进入网站根目录 git init git submodule add https://github.com/varkai/hugo-theme-zozo themes/zozo 本网站使用的ZOZO</description>
+    </item>
+    
     <item>
       <title>Contact From 7 如何在表单中添加 referer-page 信息？</title>
       <link>https://oneuie.me/archives/contact-from-7-how-to-add-referer-page-information/</link>

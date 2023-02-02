@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on 坐井说天阔</title>
+    <link>https://oneuie.me/tags/hugo/</link>
+    <description>Recent content in hugo on 坐井说天阔</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 02 Feb 2023 15:10:13 +0800</lastBuildDate><atom:link href="https://oneuie.me/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mac如何安装Hugo?</title>
+      <link>https://oneuie.me/archives/how-to-install-hugo-via-mac/</link>
+      <pubDate>Thu, 02 Feb 2023 15:10:13 +0800</pubDate>
+      
+      <guid>https://oneuie.me/archives/how-to-install-hugo-via-mac/</guid>
+      <description>Hugo的优势 最快的静态网站生产工具，速度非常快。特别推荐。 Mac系统安装Hugo brew install hug 查看Hugo版本 hugo version 创建新网站 hugo new site xxx xxx替换成自己的 添加主题 进入网站根目录 git init git submodule add https://github.com/varkai/hugo-theme-zozo themes/zozo 本网站使用的ZOZO</description>
+    </item>
+    
+  </channel>
+</rss>
