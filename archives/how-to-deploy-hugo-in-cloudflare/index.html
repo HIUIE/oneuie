@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VarKai" />
+	
+	
+	
+	<title>如何将Hugo个人博客部署在Cloudflare? ｜ 坐井说天阔</title>
+	
+    
+    
+    <meta name="description" content="Mac系统如何安装hugo？" />
+    
+
+    
+    
+    <meta name="keywords" content="外贸建站, Wordpress, 建站分享, halo使用" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://oneuie.me/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://oneuie.me/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://oneuie.me/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://oneuie.me/css/highlight.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/archives/">Archives</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://oneuie.me/">
+                    <span>坐井天阔</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">Opposite is endless darkness</p>
+            <div class="my_socials">
+                
+                
+                <a href="%20" title="facebook" target="_blank"><i class="ri-facebook-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="instagram" target="_blank"><i class="ri-instagram-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="weibo" target="_blank"><i class="ri-weibo-fill"></i></a>
+                
+                
+                <a href="https://oneuie.me/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/archives/how-to-deploy-hugo-in-cloudflare/'>如何将Hugo个人博客部署在Cloudflare?</a></h2>
+                        <span class="date">2023.02.03</span>
+                    </div>
+                    <div class="post_content markdown"><p>上次文章讲了本地安装HUGO并且生产静态文件。如果不了解，可以通过下方链接回顾一下</p>
+<blockquote>
+<p><a href="/archives/how-to-install-hugo-via-mac/">Mac如何安装Hugo？</a></p>
+</blockquote>
+<h2 id="部署前准备">部署前准备</h2>
+<p>本地安装好Hugo,并且通过<code>hugo -D</code>生成静态文件.</p>
+<h2 id="注册github并且创建新的repositories">注册Github并且创建新的Repositories</h2>
+<h3 id="1-注册github">1. 注册Github</h3>
+<p>这个就不讲了，打开网站 <a href="https://github.com">https://github.com</a> 就可以直接注册</p>
+<h3 id="2-创建新的repositories">2. 创建新的Repositories</h3>
+
+
+<div class="fancybox">
+    <a data-fancybox="gallery" href="https://oneuie.me/pic/git-new-repositories.jpg" data-caption="">
+        <img src="https://oneuie.me/pic/git-new-repositories.jpg" />
+    </a>
+</div>
+<h2 id="上传public目录到github">上传public目录到github</h2>
+<p>部署前准备，已经通过hugo-D生成了静态文件，并且所有的静态文件都在public文件夹。</p>
+<p>先进入根目录，然后进入public</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd public
+</span></span></code></pre></div><p>然后上传到public</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git init //执行
+</span></span><span class="line"><span class="cl">git add . //执行
+</span></span><span class="line"><span class="cl">git commit -m &#34;newsite&#34; //提交缓存区
+</span></span><span class="line"><span class="cl">git remote add origin https://github.com/HIUIE/oneuie //将本地仓库与远程仓库建立联系
+</span></span><span class="line"><span class="cl">git push -u origin master //推送至远程仓库
+</span></span></code></pre></div><p>上传成功之后，在后期更新文章，网站内容，先使用进入网站根目录并且使用hugo -D生成新的静态文件，再使用git push同步</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd 根目录
+</span></span><span class="line"><span class="cl">cd public
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git status //查看状态
+</span></span><span class="line"><span class="cl">git commit -m &#34;updated&#34; //提交缓存区
+</span></span><span class="line"><span class="cl">git push //推送
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git push -u -origin +master //如果推送失败可以尝试一下强制推送
+</span></span></code></pre></div><h2 id="部署cloudflare">部署Cloudflare</h2>
+<p>通过网站注册Cloudlfare <a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></p>
+<p>注册好之后进入cloudflare，点击page
+
+
+<div class="fancybox">
+    <a data-fancybox="gallery" href="https://oneuie.me/pic/page-cloudflare.jpg" data-caption="">
+        <img src="https://oneuie.me/pic/page-cloudflare.jpg" />
+    </a>
+</div></p>
+<p>进入page页面， 点击Create a project并Connect to git
+
+
+<div class="fancybox">
+    <a data-fancybox="gallery" href="https://oneuie.me/pic/connect-github-cloudflare.jpg" data-caption="">
+        <img src="https://oneuie.me/pic/connect-github-cloudflare.jpg" />
+    </a>
+</div></p>
+<p>绑定你的github账户，并且选择我们创建的Repositories
+
+
+<div class="fancybox">
+    <a data-fancybox="gallery" href="https://oneuie.me/pic/connect-repositories.jpg" data-caption="">
+        <img src="https://oneuie.me/pic/connect-repositories.jpg" />
+    </a>
+</div></p>
+<p>什么都不用填，直接进入下一步部署
+
+
+<div class="fancybox">
+    <a data-fancybox="gallery" href="https://oneuie.me/pic/enter.jpg" data-caption="">
+        <img src="https://oneuie.me/pic/enter.jpg" />
+    </a>
+</div></p>
+<p>好的，现在已经部署完毕。可以使用clouflare提供的域名进入网站，当然我们也可以绑定自己的域名。进入域名服务商修改DNS.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align:center">Name</th>
+<th style="text-align:right">Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNAME</td>
+<td style="text-align:center">shop.example.com</td>
+<td style="text-align:right">&lt;YOUR_SITE&gt;.pages.dev</td>
+</tr>
+</tbody>
+</table>
+<h2 id="通过部署的域名打开网站">通过部署的域名打开网站</h2>
+<p><a href="https://oneuie.me">https://oneuie.me</a></p>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://oneuie.me/tags/hugo/">hugo</a>
+                                    
+                                    <a href="https://oneuie.me/tags/cloudflare/">cloudflare</a>
+                                    
+                                    <a href="https://oneuie.me/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">个人博客</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com">Designed by VarKai,</a>
+        <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>Throw Me To The Wolves, and I Will Return Leading Them.</span>
+    </div>
+</footer>
+    <script src="https://oneuie.me/js/jquery-3.5.1.min.js"></script>
+<link href="https://oneuie.me/css/fancybox.min.css" rel="stylesheet">
+<script src="https://oneuie.me/js/fancybox.min.js"></script>
+<script src="https://oneuie.me/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>

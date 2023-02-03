@@ -3,21 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://oneuie.me/archives/</loc>
-    <lastmod>2023-02-02T15:10:13+08:00</lastmod>
+    <lastmod>2023-02-03T10:20:42+08:00</lastmod>
+  </url><url>
+    <loc>https://oneuie.me/tags/cloudflare/</loc>
+    <lastmod>2023-02-03T10:20:42+08:00</lastmod>
   </url><url>
     <loc>https://oneuie.me/tags/hugo/</loc>
-    <lastmod>2023-02-02T15:10:13+08:00</lastmod>
+    <lastmod>2023-02-03T10:20:42+08:00</lastmod>
+  </url><url>
+    <loc>https://oneuie.me/tags/</loc>
+    <lastmod>2023-02-03T10:20:42+08:00</lastmod>
+  </url><url>
+    <loc>https://oneuie.me/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2023-02-03T10:20:42+08:00</lastmod>
+  </url><url>
+    <loc>https://oneuie.me/</loc>
+    <lastmod>2023-02-03T10:20:42+08:00</lastmod>
+  </url><url>
+    <loc>https://oneuie.me/archives/how-to-deploy-hugo-in-cloudflare/</loc>
+    <lastmod>2023-02-03T10:20:42+08:00</lastmod>
   </url><url>
     <loc>https://oneuie.me/tags/mac/</loc>
     <lastmod>2023-02-02T15:10:13+08:00</lastmod>
   </url><url>
     <loc>https://oneuie.me/archives/how-to-install-hugo-via-mac/</loc>
-    <lastmod>2023-02-02T15:10:13+08:00</lastmod>
-  </url><url>
-    <loc>https://oneuie.me/tags/</loc>
-    <lastmod>2023-02-02T15:10:13+08:00</lastmod>
-  </url><url>
-    <loc>https://oneuie.me/</loc>
     <lastmod>2023-02-02T15:10:13+08:00</lastmod>
   </url><url>
     <loc>https://oneuie.me/archives/contact-from-7-how-to-add-referer-page-information/</loc>
