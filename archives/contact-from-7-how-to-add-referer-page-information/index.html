@@ -113,22 +113,22 @@
 <p>这里就需要我们来操作一下达到我们的的需求了。</p>
 <h2 id="添加代码到functionphp">添加代码到<strong>function.php</strong></h2>
 <p>将下方的代码添加到主题的<strong>function.php</strong>文件中</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// referer page contact from 7
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// referer page contact from 7
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">getRefererPage</span><span class="p">(</span> <span class="nv">$form_tag</span> <span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">function getRefererPage( $form_tag )
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span> <span class="nv">$form_tag</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;referer-page&#39;</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$form_tag</span><span class="p">[</span><span class="s1">&#39;values&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="nx">htmlspecialchars</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_REFERER&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="nv">$form_tag</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">{
-</span></span><span class="line"><span class="cl">if ( $form_tag[&#39;name&#39;] == &#39;referer-page&#39; ) {
-</span></span><span class="line"><span class="cl">$form_tag[&#39;values&#39;][] = htmlspecialchars($_SERVER[&#39;HTTP_REFERER&#39;]);
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">return $form_tag;
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">if ( !is_admin() ) {
-</span></span><span class="line"><span class="cl">add_filter( &#39;wpcf7_form_tag&#39;, &#39;getRefererPage&#39; );
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">is_admin</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">add_filter</span><span class="p">(</span> <span class="s1">&#39;wpcf7_form_tag&#39;</span><span class="p">,</span> <span class="s1">&#39;getRefererPage&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="添加代码到表单">添加代码到表单</h2>
-<p>[hidden referer-page default:get]</p>
+<p><code>[hidden referer-page default:get]</code></p>
 <h2 id="编辑表单的邮件模版">编辑表单的邮件模版</h2>
 <p>在适当的位置添加 <strong>[referer-page]</strong> 并且保存。</p>
 <p>现在通过给这个表单给你发的邮件，就可以看到<strong>referer-page</strong>.</p>
