@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>自定义 on 坐井说天阔</title>
+    <link>https://oneuie.me/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/</link>
+    <description>Recent content in 自定义 on 坐井说天阔</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 21 Feb 2023 21:35:45 +0800</lastBuildDate><atom:link href="https://oneuie.me/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何自定义wordpress登录界面？</title>
+      <link>https://oneuie.me/archives/how-to-customized-wordpress-login-page/</link>
+      <pubDate>Tue, 21 Feb 2023 21:35:45 +0800</pubDate>
+      
+      <guid>https://oneuie.me/archives/how-to-customized-wordpress-login-page/</guid>
+      <description>&lt;p&gt;Wordpress自身的登陆界面非常简洁，但是在实践中往往不能适合所有人的要求。本文讲解如何无代码优化美化自定义登陆后台.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通过Oxygen创建新的页面。新的页面就作为我们自定义的登陆页面。设计好改页面，并添加login-form组件。预计会出现登陆之后没有跳转到wp-admin页面；输入账号密码错误没有填出错误信息。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;插件准备&#34;&gt;插件准备&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Code Snippets (插件市场可下载)&lt;/li&gt;
+&lt;li&gt;Oxygen Bulider&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

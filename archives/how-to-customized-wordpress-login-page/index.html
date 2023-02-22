@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VarKai" />
+	
+	
+	
+	<title>如何自定义wordpress登录界面？ ｜ 坐井说天阔</title>
+	
+    
+    
+    <meta name="description" content="如何纯代码自定义实现Wordpress登录页面美化？" />
+    
+
+    
+    
+    <meta name="keywords" content="外贸建站, Wordpress, 建站分享, halo使用" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://oneuie.me/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://oneuie.me/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://oneuie.me/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://oneuie.me/css/highlight.css" />
+
+    
+    
+
+    
+    <script async defer src="https://analytics.umami.is/script.js" data-website-id="ee67e551-6dc0-4512-bc5c-1c1121060e3f"></script>
+
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/archives/">Archives</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://oneuie.me/">
+                    <span>坐井天阔</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">Opposite is endless darkness</p>
+            <div class="my_socials">
+                
+                
+                <a href="%20" title="facebook" target="_blank"><i class="ri-facebook-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="instagram" target="_blank"><i class="ri-instagram-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="weibo" target="_blank"><i class="ri-weibo-fill"></i></a>
+                
+                
+                <a href="https://oneuie.me/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/archives/how-to-customized-wordpress-login-page/'>如何自定义wordpress登录界面？</a></h2>
+                        <span class="date">2023.02.21</span>
+                    </div>
+                    <div class="post_content markdown"><p>Wordpress自身的登陆界面非常简洁，但是在实践中往往不能适合所有人的要求。本文讲解如何无代码优化美化自定义登陆后台.</p>
+<blockquote>
+<p>通过Oxygen创建新的页面。新的页面就作为我们自定义的登陆页面。设计好改页面，并添加login-form组件。预计会出现登陆之后没有跳转到wp-admin页面；输入账号密码错误没有填出错误信息。</p>
+</blockquote>
+<h2 id="插件准备">插件准备</h2>
+<ul>
+<li>Code Snippets (插件市场可下载)</li>
+<li>Oxygen Bulider</li>
+</ul>
+<h2 id="创建新的页面作为登陆页面">创建新的页面作为登陆页面</h2>
+
+
+<div class="fancybox">
+    <a data-fancybox="gallery" href="https://oneuie.me/pic/creat-a-new-login-page.jpg" data-caption="">
+        <img src="https://oneuie.me/pic/creat-a-new-login-page.jpg" />
+    </a>
+</div>
+<h2 id="添加代码">添加代码</h2>
+<p>下方所有代码通过CodeSnippets插件填写</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">//Redirect Login Page 重定向默认登陆页面到新建页面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">redirect_login_page</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$login_url</span>  <span class="o">=</span> <span class="nx">home_url</span><span class="p">(</span> <span class="s1">&#39;/login/&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$url</span> <span class="o">=</span> <span class="nx">basename</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_URI&#39;</span><span class="p">]);</span> <span class="c1">// get requested URL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">isset</span><span class="p">(</span> <span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;redirect_to&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="o">?</span> <span class="p">(</span> <span class="nv">$url</span>   <span class="o">=</span> <span class="s2">&#34;wp-login.php&#34;</span> <span class="p">)</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// if users ssend request to wp-admin
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(</span> <span class="nv">$url</span>  <span class="o">==</span> <span class="s2">&#34;wp-login.php&#34;</span> <span class="o">&amp;&amp;</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_METHOD&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">wp_redirect</span><span class="p">(</span> <span class="nv">$login_url</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">exit</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">add_action</span><span class="p">(</span><span class="s1">&#39;init&#39;</span><span class="p">,</span><span class="s1">&#39;redirect_login_page&#39;</span><span class="p">);</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">//Prevent redirection on failed login 阻止失败登陆之后跳转到默认登陆页面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">add_action</span><span class="p">(</span> <span class="s1">&#39;wp_login_failed&#39;</span><span class="p">,</span> <span class="s1">&#39;login_failed_wrong_data&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * Prevent redirection to /wp-login.php after user login fails when username and password were provided.
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * @param  string $username Username or email address.
+</span></span></span><span class="line"><span class="cl"><span class="sd"> */</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">login_failed_wrong_data</span><span class="p">(</span> <span class="nv">$username</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Check the page where login attempt is coming from.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">$referrer</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_REFERER&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// Check that we are not on the default login page + other things.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="k">empty</span><span class="p">(</span> <span class="nv">$referrer</span> <span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span> <span class="nx">strstr</span><span class="p">(</span> <span class="nv">$referrer</span><span class="p">,</span> <span class="s1">&#39;wp-login&#39;</span> <span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span> <span class="nx">strstr</span><span class="p">(</span> <span class="nv">$referrer</span><span class="p">,</span> <span class="s1">&#39;wp-admin&#39;</span> <span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nv">$username</span> <span class="o">!=</span> <span class="k">null</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// Check if we don&#39;t already have a failed login attempt.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nx">strstr</span><span class="p">(</span> <span class="nv">$referrer</span><span class="p">,</span> <span class="s1">&#39;?login=failed&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// Redirect to the same login page and append a query string.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">wp_redirect</span><span class="p">(</span> <span class="nv">$referrer</span> <span class="o">.</span> <span class="s1">&#39;?login=failed&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// Redirect to the same login page.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">wp_redirect</span><span class="p">(</span> <span class="nv">$referrer</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">exit</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">add_action</span><span class="p">(</span> <span class="s1">&#39;authenticate&#39;</span><span class="p">,</span> <span class="s1">&#39;login_failed_no_data&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * Prevent redirection to /wp-login.php after user login fails when username or/and password is/are empty.
+</span></span></span><span class="line"><span class="cl"><span class="sd"> */</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">login_failed_no_data</span><span class="p">(</span> <span class="nv">$user</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Check the page where login attempt is coming from.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">$referrer</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_REFERER&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nv">$error</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// Check if inputs are empty - these have to match with your input &#34;name&#34; attributes.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;log&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;pwd&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nv">$error</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// Check that we&#39;re not on the default login page + other things.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="k">empty</span><span class="p">(</span> <span class="nv">$referrer</span> <span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span> <span class="nx">strstr</span><span class="p">(</span> <span class="nv">$referrer</span><span class="p">,</span> <span class="s1">&#39;wp-login&#39;</span> <span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span> <span class="nx">strstr</span><span class="p">(</span> <span class="nv">$referrer</span><span class="p">,</span> <span class="s1">&#39;wp-admin&#39;</span> <span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nv">$error</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// Make sure we don&#39;t already have a failed login attempt.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nx">strstr</span><span class="p">(</span> <span class="nv">$referrer</span><span class="p">,</span> <span class="s1">&#39;?login=failed&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// Redirect to the same login page and append a query string.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">wp_redirect</span><span class="p">(</span> <span class="nv">$referrer</span> <span class="o">.</span> <span class="s1">&#39;?login=failed&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> 
+</span></span><span class="line"><span class="cl">		<span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// Redirect to the same login page.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">wp_redirect</span><span class="p">(</span> <span class="nv">$referrer</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">exit</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">//Redirect user after successful login 成功之后重定向到指定页面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">add_filter</span><span class="p">(</span> <span class="s1">&#39;login_redirect&#39;</span><span class="p">,</span> <span class="s1">&#39;my_login_redirect&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * Redirect user after successful login.
+</span></span></span><span class="line"><span class="cl"><span class="sd"> *
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * @param string $redirect_to URL to redirect to.
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * @param string $request URL the user is coming from.
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * @param object $user Logged user&#39;s data.
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * @return string
+</span></span></span><span class="line"><span class="cl"><span class="sd"> */</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">my_login_redirect</span><span class="p">(</span> <span class="nv">$redirect_to</span><span class="p">,</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$user</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// is there a user to check?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span> <span class="nx">isset</span><span class="p">(</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">roles</span> <span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">is_array</span><span class="p">(</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">roles</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// check for admins.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span> <span class="nx">in_array</span><span class="p">(</span> <span class="s1">&#39;administrator&#39;</span><span class="p">,</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">roles</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// redirect them to /wp-admin.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">return</span> <span class="nx">admin_url</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">home_url</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nv">$redirect_to</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">//Redirect user to homepage after logging out 退出之后跳转到首页
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">add_filter</span><span class="p">(</span> <span class="s1">&#39;logout_redirect&#39;</span><span class="p">,</span> <span class="s1">&#39;wpdd_logout_redirect&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">wpdd_logout_redirect</span><span class="p">(</span> <span class="nv">$redirect_to</span><span class="p">,</span> <span class="nv">$requested_redirect_to</span><span class="p">,</span> <span class="nv">$user</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">home_url</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="复制模版到页面">复制模版到页面</h2>
+<p>插件市场搜索ERROPiX Hydrogen Paste安装激活
+
+
+<div class="fancybox">
+    <a data-fancybox="gallery" href="https://oneuie.me/pic/hydrogen-paste.jpg" data-caption="">
+        <img src="https://oneuie.me/pic/hydrogen-paste.jpg" />
+    </a>
+</div></p>
+<p>复制下方代码到新建页面</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">eyJzb3VyY2UiOiJodHRwczovL294eWdlbjIubG9jYWwiLCJjb21wb25lbnQiOlt7ImlkIjoyLCJuYW1lIjoiY3Rfc2VjdGlvbiIsIm9wdGlvbnMiOnsiY3RfaWQiOjIsImN0X3BhcmVudCI6MTAwMDAzLCJzZWxlY3RvciI6InNlY3Rpb24tMi01MzIiLCJvcmlnaW5hbCI6eyJoZWlnaHQtdW5pdCI6InZoIiwiaGVpZ2h0IjoiODAiLCJjb250YWluZXItcGFkZGluZy10b3AiOiIwIiwiY29udGFpbmVyLXBhZGRpbmctbGVmdCI6IjAiLCJjb250YWluZXItcGFkZGluZy1yaWdodCI6IjAiLCJjb250YWluZXItcGFkZGluZy1ib3R0b20iOiIwIiwic2VjdGlvbi13aWR0aCI6ImZ1bGwtd2lkdGgifSwiYWN0aXZlc2VsZWN0b3IiOmZhbHNlLCJtZWRpYSI6eyJ0YWJsZXQiOnsib3JpZ2luYWwiOnsiaGVpZ2h0LXVuaXQiOiJhdXRvIn19fX0sImNoaWxkcmVuIjpbeyJpZCI6MywibmFtZSI6ImN0X25ld19jb2x1bW5zIiwib3B0aW9ucyI6eyJjdF9pZCI6MywiY3RfcGFyZW50IjoyLCJzZWxlY3RvciI6Im5ld19jb2x1bW5zLTMtNTMyIiwib3JpZ2luYWwiOnsiaGVpZ2h0LXVuaXQiOiIlIiwiaGVpZ2h0IjoiMTAwIn0sImFjdGl2ZXNlbGVjdG9yIjpmYWxzZX0sImNoaWxkcmVuIjpbeyJpZCI6NCwibmFtZSI6ImN0X2Rpdl9ibG9jayIsIm9wdGlvbnMiOnsiY3RfaWQiOjQsImN0X3BhcmVudCI6Mywic2VsZWN0b3IiOiJkaXZfYmxvY2stNC01MzIiLCJvcmlnaW5hbCI6eyJ3aWR0aCI6IjUwIiwid2lkdGgtdW5pdCI6IiUiLCJiYWNrZ3JvdW5kLWltYWdlIjoiaHR0cHM6Ly9zb3VyY2UudW5zcGxhc2guY29tL3JhbmRvbS8xNjAweDkwMCIsImJhY2tncm91bmQtc2l6ZSI6ImNvdmVyIiwiYmFja2dyb3VuZC1yZXBlYXQiOiJuby1yZXBlYXQiLCJiYWNrZ3JvdW5kLXBvc2l0aW9uLWxlZnQtdW5pdCI6IiUiLCJiYWNrZ3JvdW5kLXBvc2l0aW9uLWxlZnQiOiI1MCIsImJhY2tncm91bmQtcG9zaXRpb24tdG9wLXVuaXQiOiIlIiwiYmFja2dyb3VuZC1wb3NpdGlvbi10b3AiOiI1MCIsIm92ZXJsYXktY29sb3IiOiJyZ2JhKDEwMywxNTMsMTc4LDAuNSkifSwiYWN0aXZlc2VsZWN0b3IiOmZhbHNlLCJtZWRpYSI6eyJ0YWJsZXQiOnsib3JpZ2luYWwiOnsicGFkZGluZy10b3AiOiI2MCIsInBhZGRpbmctYm90dG9tIjoiNjAifX19LCJjdF9jb250ZW50IjoiIn0sImRlcHRoIjo0fSx7ImlkIjo1LCJuYW1lIjoiY3RfZGl2X2Jsb2NrIiwib3B0aW9ucyI6eyJjdF9pZCI6NSwiY3RfcGFyZW50IjozLCJzZWxlY3RvciI6ImRpdl9ibG9jay01LTUzMiIsIm9yaWdpbmFsIjp7IndpZHRoIjoiNTAiLCJ3aWR0aC11bml0IjoiJSIsImp1c3RpZnktY29udGVudCI6ImNlbnRlciIsInBhZGRpbmctdG9wIjoiNjAiLCJwYWRkaW5nLWxlZnQiOiI2MCIsInBhZGRpbmctcmlnaHQiOiI2MCIsInBhZGRpbmctYm90dG9tIjoiNjAiLCJ0ZXh0LWFsaWduIjoibGVmdCIsImFsaWduLWl0ZW1zIjoiY2VudGVyIn0sImFjdGl2ZXNlbGVjdG9yIjpmYWxzZX0sImNoaWxkcmVuIjpbeyJpZCI6OSwibmFtZSI6ImN0X2Rpdl9ibG9jayIsIm9wdGlvbnMiOnsiY3RfaWQiOjksImN0X3BhcmVudCI6NSwic2VsZWN0b3IiOiJkaXZfYmxvY2stOS01MzIiLCJvcmlnaW5hbCI6eyJ3aWR0aC11bml0IjoiJSIsIndpZHRoIjoiMTAwIiwibWF4LXdpZHRoIjoiODAwIn0sImFjdGl2ZXNlbGVjdG9yIjpmYWxzZX0sImNoaWxkcmVuIjpbeyJpZCI6NywibmFtZSI6Im94eV9sb2dpbl9mb3JtIiwib3B0aW9ucyI6eyJjdF9pZCI6NywiY3RfcGFyZW50Ijo5LCJzZWxlY3RvciI6Il9sb2dpbl9mb3JtLTctNTMyIiwib3JpZ2luYWwiOnsiZ2xvYmFsY29uZGl0aW9ucyI6W3sibmFtZSI6IlVzZXIgTG9nZ2VkIEluIiwib3BlcmF0b3IiOjAsInZhbHVlIjoiZmFsc2UiLCJzZWFyY2hWYWx1ZSI6ImZhbHNlIn1dfSwiYWN0aXZlc2VsZWN0b3IiOmZhbHNlLCJjdF9jb250ZW50IjoiIn0sImRlcHRoIjoxfSx7ImlkIjo2LCJuYW1lIjoiY3RfY29kZV9ibG9jayIsIm9wdGlvbnMiOnsiY3RfaWQiOjYsImN0X3BhcmVudCI6OSwic2VsZWN0b3IiOiJjb2RlX2Jsb2NrLTYtNTMyIiwib3JpZ2luYWwiOnsiY29kZS1waHAiOiI8P3BocFxuXHRpZiAoIGlzc2V0KCAkX0dFVFsnbG9naW4nXSApICYmICdmYWlsZWQnID09PSAkX0dFVFsnbG9naW4nXSApIHsgPz5cbiAgICAgICAgPGRpdiBjbGFzcz1cImxvZ2luLW1lc3NhZ2UgbG9naW4tZXJyb3JcIj5cbiAgICAgICAgICAgIDxwPllvdXIgbG9naW4gYXR0ZW1wdCB3YXMgbm90IHN1Y2Nlc3NmdWwuIFBsZWFzZSB0cnkgYWdhaW4uPC9wPlxuICAgICAgICA8L2Rpdj5cblx0PD9waHAgfVxuPz4iLCJhb3MtZW5hYmxlIjoidHJ1ZSIsImFvcy10eXBlIjoiZmFkZS11cCIsImFvcy1kdXJhdGlvbiI6IjEwMDAiLCJ3aWR0aC11bml0IjoiJSIsIndpZHRoIjoiMTAwIiwiY29kZS1jc3MiOiIiLCJnbG9iYWxjb25kaXRpb25zIjpbeyJuYW1lIjoiVXNlciBMb2dnZWQgSW4iLCJvcGVyYXRvciI6MCwidmFsdWUiOiJmYWxzZSIsInNlYXJjaFZhbHVlIjoiZmFsc2UifV0sIm1hcmdpbi10b3AiOiIzMCIsImNvbmRpdGlvbnNwcmV2aWV3IjoiMSIsImdsb2JhbENvbmRpdGlvbnNSZXN1bHQiOmZhbHNlfSwiYWN0aXZlc2VsZWN0b3IiOmZhbHNlLCJuaWNlbmFtZSI6IkxvZ2luIEZhaWxlZCIsImN0X2NvbnRlbnQiOiIifSwiZGVwdGgiOjF9LHsiaWQiOjE2LCJuYW1lIjoiY3RfY29kZV9ibG9jayIsIm9wdGlvbnMiOnsiY3RfaWQiOjE2LCJjdF9wYXJlbnQiOjksInNlbGVjdG9yIjoiY29kZV9ibG9jay0xNi01MzIiLCJvcmlnaW5hbCI6eyJjb2RlLXBocCI6IjxwPllvdSBhcmUgY3VycmVudGx5IGxvZ2dlZCBpbi48L3A+XG48cD5DbGljayA8YSBocmVmPVwiPD9waHAgZWNobyB3cF9sb2dvdXRfdXJsKCBob21lX3VybCgpKTsgPz5cIiB0aXRsZT1cIkxvZ291dFwiPmhlcmU8L2E+IHRvIGxvZyBvdXQuPC9wPiIsImdsb2JhbGNvbmRpdGlvbnMiOlt7Im5hbWUiOiJVc2VyIExvZ2dlZCBJbiIsIm9wZXJhdG9yIjowLCJ2YWx1ZSI6InRydWUiLCJzZWFyY2hWYWx1ZSI6InRydWUifV19LCJjbGFzc2VzIjpbImxvZ2luLXN1Y2Nlc3MiLCJsb2dpbi1tZXNzYWdlIl0sImFjdGl2ZXNlbGVjdG9yIjpmYWxzZSwibmljZW5hbWUiOiJMb2dpbiBTdWNjZXNzIiwiY3RfY29udGVudCI6IiJ9LCJkZXB0aCI6MX1dLCJkZXB0aCI6NX1dLCJkZXB0aCI6NH1dLCJkZXB0aCI6NH1dLCJkZXB0aCI6M31dLCJjbGFzc2VzIjp7ImxvZ2luLXN1Y2Nlc3MiOnsib3JpZ2luYWwiOnsiYW9zLWVuYWJsZSI6InRydWUiLCJhb3MtdHlwZSI6ImZhZGUtdXAiLCJhb3MtZHVyYXRpb24iOiIxMDAwIn19LCJsb2dpbi1tZXNzYWdlIjp7Im9yaWdpbmFsIjp7fX19LCJjb2xvcnMiOnt9fQ==
+</span></span></code></pre></div>
+
+<div class="fancybox">
+    <a data-fancybox="gallery" href="https://oneuie.me/pic/after-copy-page.jpg" data-caption="">
+        <img src="https://oneuie.me/pic/after-copy-page.jpg" />
+    </a>
+</div>
+<p>保存并发布。</p></div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://oneuie.me/tags/wordpress/">Wordpress</a>
+                                    
+                                    <a href="https://oneuie.me/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/">自定义</a>
+                                    
+                                    <a href="https://oneuie.me/tags/%E7%99%BB%E9%99%86%E9%A1%B5%E9%9D%A2/">登陆页面</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com" target="_blank" rel="noopener nofollow external noreferrer" >Designed by VarKai</a>
+        <a href="http://www.gohugo.io/" target="_blank" rel="noopener nofollow external noreferrer" >Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>Throw Me To The Wolves, and I Will Return Leading Them.</span>
+    </div>
+</footer>
+    <script src="https://oneuie.me/js/jquery-3.5.1.min.js"></script>
+<link href="https://oneuie.me/css/fancybox.min.css" rel="stylesheet">
+<script src="https://oneuie.me/js/fancybox.min.js"></script>
+<script src="https://oneuie.me/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>
