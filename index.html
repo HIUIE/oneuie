@@ -121,7 +121,17 @@
             <p><p>在通过Easypost和Repeater建立产品集或者相册的时候，在Query选择的默认的时候，默认的排序不是我们想要的。</p>
 <blockquote>
 <p>可以通过添加代码改变默认的排序。</p>
-</blockquote>......</p>
+</blockquote>
+<h2 id="添加代码到code-snippets">添加代码到Code Snippets</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// Order Posts DESC
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">function</span> <span class="nf">prefix_modify_query_order</span><span class="p">(</span> <span class="nv">$query</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span> <span class="nx">is_main_query</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$args</span> <span class="o">=</span>  <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;post_date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;DESC&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span> <span class="s1">&#39;orderby&#39;</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">add_action</span><span class="p">(</span> <span class="s1">&#39;pre_get_posts&#39;</span><span class="p">,</span> <span class="s1">&#39;prefix_modify_query_order&#39;</span> <span class="p">);</span>
+</span></span></code></pre></div>......</p>
         </div>
     </div>
     
