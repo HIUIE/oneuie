@@ -8,11 +8,11 @@
 	
 	
 	
-	<title>Tags ｜ 坐井说天阔</title>
+	<title>如何自定义Easypost以及Repeater排序？ ｜ 坐井说天阔</title>
 	
     
     
-    <meta name="description" content="Hello everyone, this site is a blog that records my personal thoughts and exciting things I want to share." />
+    <meta name="description" content="如何把easypost以及repeater的默认排序调整成DESC？" />
     
 
     
@@ -21,8 +21,6 @@
     
 
 	
-	<link rel="alternate" type="application/rss+xml" href="https://oneuie.me/tags/index.xml" title="坐井说天阔" />
-    
     
     <link rel="shortcut icon" href="https://oneuie.me/images/favicon.ico" />
 
@@ -108,112 +106,59 @@
     </div>
 </div>
         <div class="content">
-            <div class="page_tags">
-                <ul>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/wordpress">
-                            wordpress <span class="terms_count">3</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/hugo">
-                            hugo <span class="terms_count">2</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/cloudflare">
-                            cloudflare <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/contact-from-7">
-                            contact-from-7 <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/easypost">
-                            easypost <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/mac">
-                            mac <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/oxygenbuilder">
-                            oxygenbuilder <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/repeater">
-                            repeater <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2">
-                            个人博客 <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/%E7%99%BB%E9%99%86%E9%A1%B5%E9%9D%A2">
-                            登陆页面 <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/%E8%87%AA%E5%AE%9A%E4%B9%89">
-                            自定义 <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="https://oneuie.me/tags/%E8%A1%A8%E5%8D%95">
-                            表单 <span class="terms_count">1</span>
-                        </a>
-                    </li>
-                    
-                    
-                </ul>
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/archives/how-to-change-easypost-repeater-defalut-order/'>如何自定义Easypost以及Repeater排序？</a></h2>
+                        <span class="date">2023.03.23</span>
+                    </div>
+                    <div class="post_content markdown"><p>在通过Easypost和Repeater建立产品集或者相册的时候，在Query选择的默认的时候，默认的排序不是我们想要的。</p>
+<blockquote>
+<p>可以通过添加代码改变默认的排序。</p>
+</blockquote>
+<h2 id="添加代码到code-snippets">添加代码到Code Snippets</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Order Posts DESC
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">prefix_modify_query_order</span><span class="p">(</span> <span class="nv">$query</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span> <span class="nx">is_main_query</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">$args</span> <span class="o">=</span>  <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;post_date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;DESC&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span> <span class="s1">&#39;orderby&#39;</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">add_action</span><span class="p">(</span> <span class="s1">&#39;pre_get_posts&#39;</span><span class="p">,</span> <span class="s1">&#39;prefix_modify_query_order&#39;</span> <span class="p">);</span>
+</span></span></code></pre></div></div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://oneuie.me/tags/wordpress/">Wordpress</a>
+                                    
+                                    <a href="https://oneuie.me/tags/oxygenbuilder/">OxygenBuilder</a>
+                                    
+                                    <a href="https://oneuie.me/tags/easypost/">Easypost</a>
+                                    
+                                    <a href="https://oneuie.me/tags/repeater/">Repeater</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
             </div>
-            <div class="pagination"></div>
         </div>
-        <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
     </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
     <footer class="footer">
     <div class="powered_by">
         <a href="https://varkai.com" target="_blank" rel="noopener nofollow external noreferrer" >Designed by VarKai</a>

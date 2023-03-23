@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Easypost on 坐井说天阔</title>
+    <link>https://oneuie.me/tags/easypost/</link>
+    <description>Recent content in Easypost on 坐井说天阔</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 23 Mar 2023 23:54:43 +0800</lastBuildDate><atom:link href="https://oneuie.me/tags/easypost/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何自定义Easypost以及Repeater排序？</title>
+      <link>https://oneuie.me/archives/how-to-change-easypost-repeater-defalut-order/</link>
+      <pubDate>Thu, 23 Mar 2023 23:54:43 +0800</pubDate>
+      
+      <guid>https://oneuie.me/archives/how-to-change-easypost-repeater-defalut-order/</guid>
+      <description>&lt;p&gt;在通过Easypost和Repeater建立产品集或者相册的时候，在Query选择的默认的时候，默认的排序不是我们想要的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以通过添加代码改变默认的排序。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
