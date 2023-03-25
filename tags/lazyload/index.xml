@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lazyload on 坐井说天阔</title>
+    <link>https://oneuie.me/tags/lazyload/</link>
+    <description>Recent content in Lazyload on 坐井说天阔</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 25 Mar 2023 10:58:57 +0800</lastBuildDate><atom:link href="https://oneuie.me/tags/lazyload/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OxygenBuilder如何通过Javascript懒加载Wistia视频？</title>
+      <link>https://oneuie.me/archives/how-to-lazy-loading-wistia-videos-with-javascript-in-oxygen/</link>
+      <pubDate>Sat, 25 Mar 2023 10:58:57 +0800</pubDate>
+      
+      <guid>https://oneuie.me/archives/how-to-lazy-loading-wistia-videos-with-javascript-in-oxygen/</guid>
+      <description>与Youtube以及Viemo相比，Wistia似乎更适合我们用来置放视频到网站上面。界面非常清爽以及没有任何的广告。这篇文章就是讲述如何在OxygenBuilder实现此功能。 插件准备 Oxygen Bulider 添加Cod</description>
+    </item>
+    
+  </channel>
+</rss>

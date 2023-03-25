@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VarKai" />
+	
+	
+	
+	<title>OxygenBuilder如何通过Javascript懒加载Wistia视频？ ｜ 坐井说天阔</title>
+	
+    
+    
+    <meta name="description" content="如何纯代码自定义实现Wordpress登录页面美化？" />
+    
+
+    
+    
+    <meta name="keywords" content="外贸建站, Wordpress, 建站分享, halo使用" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://oneuie.me/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://oneuie.me/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://oneuie.me/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://oneuie.me/css/highlight.css" />
+
+    
+    
+
+    
+    <script async defer src="https://analytics.umami.is/script.js" data-website-id="ee67e551-6dc0-4512-bc5c-1c1121060e3f"></script>
+
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/archives/">Archives</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://oneuie.me/">
+                    <span>坐井天阔</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">Opposite is endless darkness</p>
+            <div class="my_socials">
+                
+                
+                <a href="%20" title="facebook" target="_blank"><i class="ri-facebook-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="instagram" target="_blank"><i class="ri-instagram-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="weibo" target="_blank"><i class="ri-weibo-fill"></i></a>
+                
+                
+                <a href="https://oneuie.me/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/archives/how-to-lazy-loading-wistia-videos-with-javascript-in-oxygen/'>OxygenBuilder如何通过Javascript懒加载Wistia视频？</a></h2>
+                        <span class="date">2023.03.25</span>
+                    </div>
+                    <div class="post_content markdown"><p>与Youtube以及Viemo相比，Wistia似乎更适合我们用来置放视频到网站上面。界面非常清爽以及没有任何的广告。这篇文章就是讲述如何在OxygenBuilder实现此功能。</p>
+<h2 id="插件准备">插件准备</h2>
+<ul>
+<li>Oxygen Bulider</li>
+</ul>
+<h2 id="添加code-block">添加Code Block</h2>
+<p>通过OxygenBuilder打开我们需要添加视频到页面，并且添加Code Block.
+
+
+<div class="fancybox">
+    <a data-fancybox="gallery" href="https://oneuie.me/pic/codeblock.jpg" data-caption="">
+        <img src="https://oneuie.me/pic/codeblock.jpg" />
+    </a>
+</div></p>
+<h3 id="添加代码到phphtml">添加代码到PHP&amp;HTML</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&#34;wistia&#34;</span> <span class="nx">data</span><span class="o">-</span><span class="nx">embed</span><span class="o">=</span><span class="s2">&#34;fousa0gqve&#34;</span> <span class="nx">data</span><span class="o">-</span><span class="nx">thumb</span><span class="o">=</span><span class="s2">&#34;772ba38639a8dd752968933b95e3a7282f4d6a7b&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&#34;play-button&#34;</span><span class="o">&gt;&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+</span></span></code></pre></div><p><code>Data-Embed</code> 以及 <code>Data-thumb</code>的参数可以通过在Wisita视频上点击右键复制链接和缩略图找到对应的参数
+
+
+<div class="fancybox">
+    <a data-fancybox="gallery" href="https://oneuie.me/pic/wisita.jpg" data-caption="">
+        <img src="https://oneuie.me/pic/wisita.jpg" />
+    </a>
+</div></p>
+<h3 id="添加代码到css">添加代码到CSS</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">wistia</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">margin-bottom</span><span class="p">:</span> <span class="mi">30</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">padding-top</span><span class="p">:</span> <span class="mf">56.25</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">cursor</span><span class="p">:</span> <span class="kc">pointer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="k">border-radius</span><span class="p">:</span><span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">wistia</span> <span class="nt">img</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="c">/* Change this for different ratio than 16:9 */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">opacity</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">wistia</span> <span class="p">.</span><span class="nc">play-button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">width</span><span class="p">:</span> <span class="mi">90</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">height</span><span class="p">:</span> <span class="mi">60</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">background-color</span><span class="p">:</span> <span class="nf">color</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">30</span><span class="kt">px</span> <span class="nb">rgba</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.6</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">z-index</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">opacity</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">wistia</span> <span class="p">.</span><span class="nc">play-button</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">content</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">border-style</span><span class="p">:</span> <span class="kc">solid</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">border-width</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span> <span class="mi">0</span> <span class="mi">15</span><span class="kt">px</span> <span class="mf">26.0</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">border-color</span><span class="p">:</span> <span class="kc">transparent</span> <span class="kc">transparent</span> <span class="kc">transparent</span> <span class="mh">#fff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">wistia</span> <span class="nt">img</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">wistia</span> <span class="p">.</span><span class="nc">play-button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">cursor</span><span class="p">:</span> <span class="kc">pointer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">wistia</span> <span class="nt">img</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">wistia</span> <span class="nt">iframe</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">wistia</span> <span class="p">.</span><span class="nc">play-button</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">wistia</span> <span class="p">.</span><span class="nc">play-button</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">wistia</span> <span class="p">.</span><span class="nc">play-button</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">wistia</span> <span class="p">.</span><span class="nc">play-button</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">top</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">left</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">transform</span><span class="p">:</span> <span class="nb">translate3d</span><span class="p">(</span> <span class="mi">-50</span><span class="kt">%</span><span class="p">,</span> <span class="mi">-50</span><span class="kt">%</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">wistia</span> <span class="nt">iframe</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>可以通过修改上面的CSS代码来自定义</p>
+<h3 id="添加代码到javascript">添加代码到Javascript</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="p">(</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">wistia</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span> <span class="s2">&#34;.wistia&#34;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">wistia</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">source</span> <span class="o">=</span> <span class="s2">&#34;https://embed-ssl.wistia.com/deliveries/&#34;</span><span class="o">+</span> <span class="nx">wistia</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">thumb</span> <span class="o">+</span><span class="s2">&#34;.jpg&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">source</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">image</span><span class="p">.</span><span class="nx">alt</span> <span class="o">=</span> <span class="s2">&#34;这里是视频内容的描述&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">image</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="s2">&#34;load&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">wistia</span><span class="p">[</span> <span class="nx">i</span> <span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span> <span class="nx">image</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}(</span> <span class="nx">i</span> <span class="p">)</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">wistia</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">iframe</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span> <span class="s2">&#34;iframe&#34;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span> <span class="s2">&#34;frameborder&#34;</span><span class="p">,</span> <span class="s2">&#34;0&#34;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span> <span class="s2">&#34;allowfullscreen&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span> <span class="s2">&#34;mozallowfullscreen&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span> <span class="s2">&#34;webkitallowfullscreen&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span> <span class="s2">&#34;oallowfullscreen&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span> <span class="s2">&#34;msallowfullscreen&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span> <span class="s2">&#34;src&#34;</span><span class="p">,</span> <span class="s2">&#34;//fast.wistia.net/embed/iframe/&#34;</span><span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">embed</span> <span class="o">+</span><span class="s2">&#34;?videoFoam=true&#34;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span> <span class="nx">iframe</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="p">);</span>    
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="p">)</span>
+</span></span></code></pre></div><p><code>image.alt</code> 标签可以修改成对应视频的描述</p>
+<h2 id="将wisita视频设置成自动播放">将Wisita视频设置成自动播放</h2>
+<p>以上步骤设置好以后，现在的视频在页面加载的时候已经是显示缩略图，这个对网站的加载速度有极大的提升。
+但是我们发现点击播放之后需要再次点击播放才能正常播放视频。
+所以我们需要将视频调整成自动播放
+
+
+<div class="fancybox">
+    <a data-fancybox="gallery" href="https://oneuie.me/pic/wisita-autoplay-setting.jpg" data-caption="">
+        <img src="https://oneuie.me/pic/wisita-autoplay-setting.jpg" />
+    </a>
+</div>
+在视频设置-自定义-控制里面可以找到。</p>
+<p>现在一切完成。Enjoy it!</p>
+<p>PS:<br>
+<a href="https://itsmereal.com/lazy-loading-wistia-videos-with-javascript/" ref="noopener nofollow external noreferrer">参考网站</a></p>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://oneuie.me/tags/wordpress/">Wordpress</a>
+                                    
+                                    <a href="https://oneuie.me/tags/oxygenbuilder/">OxygenBuilder</a>
+                                    
+                                    <a href="https://oneuie.me/tags/wistia/">Wistia</a>
+                                    
+                                    <a href="https://oneuie.me/tags/lazyload/">Lazyload</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com" target="_blank" rel="noopener nofollow external noreferrer" >Designed by VarKai</a>
+        <a href="http://www.gohugo.io/" target="_blank" rel="noopener nofollow external noreferrer" >Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>Throw Me To The Wolves, and I Will Return Leading Them.</span>
+    </div>
+</footer>
+    <script src="https://oneuie.me/js/jquery-3.5.1.min.js"></script>
+<link href="https://oneuie.me/css/fancybox.min.css" rel="stylesheet">
+<script src="https://oneuie.me/js/fancybox.min.js"></script>
+<script src="https://oneuie.me/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>

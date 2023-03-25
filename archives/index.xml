@@ -6,7 +6,16 @@
     <description>Recent content in Archives on 坐井说天阔</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 23 Mar 2023 23:54:43 +0800</lastBuildDate><atom:link href="https://oneuie.me/archives/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Mar 2023 10:58:57 +0800</lastBuildDate><atom:link href="https://oneuie.me/archives/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OxygenBuilder如何通过Javascript懒加载Wistia视频？</title>
+      <link>https://oneuie.me/archives/how-to-lazy-loading-wistia-videos-with-javascript-in-oxygen/</link>
+      <pubDate>Sat, 25 Mar 2023 10:58:57 +0800</pubDate>
+      
+      <guid>https://oneuie.me/archives/how-to-lazy-loading-wistia-videos-with-javascript-in-oxygen/</guid>
+      <description>与Youtube以及Viemo相比，Wistia似乎更适合我们用来置放视频到网站上面。界面非常清爽以及没有任何的广告。这篇文章就是讲述如何在OxygenBuilder实现此功能。 插件准备 Oxygen Bulider 添加Cod</description>
+    </item>
+    
     <item>
       <title>如何自定义Easypost以及Repeater排序？</title>
       <link>https://oneuie.me/archives/how-to-change-easypost-repeater-defalut-order/</link>
