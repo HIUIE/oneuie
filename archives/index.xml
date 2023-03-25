@@ -13,7 +13,13 @@
       <pubDate>Sat, 25 Mar 2023 10:58:57 +0800</pubDate>
       
       <guid>https://oneuie.me/archives/how-to-lazy-loading-wistia-videos-with-javascript-in-oxygen/</guid>
-      <description>与Youtube以及Viemo相比，Wistia似乎更适合我们用来置放视频到网站上面。界面非常清爽以及没有任何的广告。这篇文章就是讲述如何在OxygenBuilder实现此功能。 插件准备 Oxygen Bulider 添加Cod</description>
+      <description>&lt;p&gt;与Youtube以及Viemo相比，Wistia似乎更适合我们用来置放视频到网站上面。界面非常清爽以及没有任何的广告。这篇文章就是讲述如何在OxygenBuilder实现此功能。&lt;/p&gt;
+&lt;h2 id=&#34;插件准备&#34;&gt;插件准备&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Oxygen Bulider&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;添加code-block&#34;&gt;添加Code Block&lt;/h2&gt;
+&lt;p&gt;通过OxygenBuilder打开我们需要添加视频到页面，并且添加Code Block.&lt;/p&gt;</description>
     </item>
     
     <item>
