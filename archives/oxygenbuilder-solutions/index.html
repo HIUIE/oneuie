@@ -112,30 +112,29 @@
                         <h2><a href='/archives/oxygenbuilder-solutions/'>Oxygen Builder 大全</a></h2>
                         <span class="date">2023.04.17</span>
                     </div>
-                    <div class="post_content markdown"><p>用了这么久的OxygenBuilder，遇到了各种各样的问题，但是每次时间一久就会搞忘大部分。所以把问题和解决方法在这里记录一下，方便查看。</p>
+                    <div class="post_content markdown"><p>用了这么久的 OxygenBuilder，遇到了各种各样的问题，但是每次时间一久就会搞忘大部分。所以把问题和解决方法在这里记录一下，方便查看。</p>
 <h2 id="动态数据去除聚合页的前缀">动态数据去除聚合页的前缀</h2>
 <blockquote>
-<p>使用ACF建立Customize的页面，再准备用OxygenBuilder建立一个页面聚合页。添加了一个heading。想通过选择动态数据的post&gt;title来使heading动态化。但是显示。
+<p>使用 ACF 建立 Customize 的页面，再准备用 OxygenBuilder 建立一个页面聚合页。添加了一个 heading。想通过选择动态数据的 post&gt;title 来使 heading 动态化。但是不显示。
 通过以下方法解决：</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Remove Archive Prefix
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// Remove Archive Prefix
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">&lt;?</span><span class="nx">php</span>
-</span></span><span class="line"><span class="cl"><span class="nx">add_filter</span><span class="p">(</span><span class="s1">&#39;get_the_archive_title&#39;</span><span class="p">,</span> <span class="s1">&#39;my_theme_archive_title&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">add_filter</span><span class="p">(</span><span class="s2">&#34;get_the_archive_title&#34;</span><span class="p">,</span> <span class="s2">&#34;my_theme_archive_title&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">my_theme_archive_title</span><span class="p">(</span><span class="nv">$title</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">is_category</span><span class="p">())</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$title</span> <span class="o">=</span> <span class="nx">single_cat_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nx">is_tag</span><span class="p">())</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$title</span> <span class="o">=</span> <span class="nx">single_tag_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nx">is_author</span><span class="p">())</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$title</span> <span class="o">=</span> <span class="s1">&#39;&lt;span class=&#34;vcard&#34;&gt;&#39;</span> <span class="o">.</span> <span class="nx">get_the_author</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;&lt;/span&gt;&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nx">is_post_type_archive</span><span class="p">())</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$title</span> <span class="o">=</span> <span class="nx">post_type_archive_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nx">is_tax</span><span class="p">())</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$title</span> <span class="o">=</span> <span class="nx">single_term_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="nv">$title</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">is_category</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$title</span> <span class="o">=</span> <span class="nx">single_cat_title</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nx">is_tag</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$title</span> <span class="o">=</span> <span class="nx">single_tag_title</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nx">is_author</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$title</span> <span class="o">=</span> <span class="s1">&#39;&lt;span class=&#34;vcard&#34;&gt;&#39;</span> <span class="o">.</span> <span class="nx">get_the_author</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&#34;&lt;/span&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nx">is_post_type_archive</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$title</span> <span class="o">=</span> <span class="nx">post_type_archive_title</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nx">is_tax</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$title</span> <span class="o">=</span> <span class="nx">single_term_title</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nv">$title</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div>
                     <div class="post_footer">
