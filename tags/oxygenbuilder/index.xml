@@ -6,7 +6,16 @@
     <description>Recent content in OxygenBuilder on 坐井说天阔</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 25 Mar 2023 10:58:57 +0800</lastBuildDate><atom:link href="https://oneuie.me/tags/oxygenbuilder/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Apr 2023 23:44:16 +0800</lastBuildDate><atom:link href="https://oneuie.me/tags/oxygenbuilder/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Oxygen Builder 大全</title>
+      <link>https://oneuie.me/archives/oxygenbuilder-solutions/</link>
+      <pubDate>Mon, 17 Apr 2023 23:44:16 +0800</pubDate>
+      
+      <guid>https://oneuie.me/archives/oxygenbuilder-solutions/</guid>
+      <description>用了这么久的OxygenBuilder，遇到了各种各样的问题，但是每次时间一久就会搞忘大部分。所以把问题和解决方法在这里记录一下，方便查看。 动态数据去除聚合页的前缀 使用ACF建立Customize的页</description>
+    </item>
+    
     <item>
       <title>OxygenBuilder如何通过Javascript懒加载Wistia视频？</title>
       <link>https://oneuie.me/archives/how-to-lazy-loading-wistia-videos-with-javascript-in-oxygen/</link>
