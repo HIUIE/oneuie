@@ -113,9 +113,9 @@
                         <span class="date">2023.04.17</span>
                     </div>
                     <div class="post_content markdown"><p>用了这么久的 OxygenBuilder，遇到了各种各样的问题，但是每次时间一久就会搞忘大部分。所以把问题和解决方法在这里记录一下，方便查看。</p>
-<h2 id="动态数据去除聚合页的前缀">动态数据去除聚合页的前缀</h2>
+<h2 id="动态数据中去除聚合页的前缀">动态数据中去除聚合页的前缀</h2>
 <blockquote>
-<p>使用 ACF 建立 Customize 的页面，再准备用 OxygenBuilder 建立一个页面聚合页。添加了一个 heading。想通过选择动态数据的 post&gt;title 来使 heading 动态化。但是不显示。
+<p>使用 ACF 建立 Customize 的页面，再准备用 OxygenBuilder 建立一个页面聚合页。添加了一个 heading。想通过选择动态数据的 post&gt;title 来使 heading 动态化。但是没有数据输出。
 通过以下方法解决：</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// Remove Archive Prefix
@@ -136,7 +136,19 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nv">$title</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div></div>
+</span></span></code></pre></div><br/>
+<br/>
+<h2 id="contactfrom7-如何在表单中显示-url-参数">ContactFrom7 如何在表单中显示 URL 参数？</h2>
+<blockquote>
+<p>先参考官方  <a href="https://contactform7.com/getting-default-values-from-the-context/" ref="noopener nofollow external noreferrer">ContactFrom7官方指导</a>。然后我们需要在对应的页面安排加上需要的参数。</p>
+</blockquote>
+<h3 id="产品或者我们需要的页面添加链接">产品或者我们需要的页面添加链接</h3>
+<p>在产品详细页面的发送询价按钮的链接上加入 ？what-you-need={[dynamic-data(这里添加 oxygen 的动态数据)]}</p>
+<h3 id="在contactfrom7添加代码">在ContactFrom7添加代码</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">// contact from 编辑
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>[text* what-you-need default:get placeholder &#34;Please tell us what kind of poroduct you need?&#34;]<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>PS:
+<code>default</code> 就是得到我们链接上面的参数,<code>placeholder</code> 后面就是如果没有参数，它就会显示这个默认的语句。</p></div>
                     <div class="post_footer">
                         
                         <div class="meta">
