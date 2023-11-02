@@ -13,7 +13,8 @@
       <pubDate>Mon, 17 Apr 2023 23:44:16 +0800</pubDate>
       
       <guid>https://oneuie.me/archives/oxygenbuilder-solutions/</guid>
-      <description>&lt;p&gt;用了这么久的 OxygenBuilder，遇到了各种各样的问题，但是每次时间一久就会搞忘大部分。所以把问题和解决方法在这里记录一下，方便查看。&lt;/p&gt;
+      <description>&lt;!--toc--&gt;
+&lt;p&gt;用了这么久的 OxygenBuilder，遇到了各种各样的问题，但是每次时间一久就会搞忘大部分。所以把问题和解决方法在这里记录一下，方便查看。&lt;/p&gt;
 &lt;h2 id=&#34;动态数据中去除聚合页的前缀&#34;&gt;动态数据中去除聚合页的前缀&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;使用 ACF 建立 Customize 的页面，再准备用 OxygenBuilder 建立一个页面聚合页。添加了一个 heading。想通过选择动态数据的 post&amp;gt;title 来使 heading 动态化。但是没有数据输出。
